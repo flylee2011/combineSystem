@@ -1,0 +1,13 @@
+{
+  "name": "combineSystem",
+  "description": "This is a js/css combine system",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.x",
+    "ejs":"*"
+  },
+  "scripts": {
+    "start": "node app"
+  }
+}
