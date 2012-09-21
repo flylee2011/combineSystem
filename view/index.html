@@ -2,8 +2,71 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
+		<link rel='stylesheet' href='/css/bootstrap.css' />
 	</head>
 	<body>
-		<h1>打包系统</h1>
+		<div class="container">
+			<form class="form-horizontal" action="combine" method="post">
+				<fieldset>
+		          <legend>打包系统</legend>
+		          <div class="control-group">
+		            <label class="control-label" for="input01">输入发布代码路径</label>
+		            <div class="controls">
+		              <input type="text" class="input-xlarge" id="input01">
+		              <p class="help-block">注意：以"/"结尾，注意分支格式，默认"/"分割倒数第三个字符串为项目名称。</p>
+		            </div>
+		          </div>
+		          <div class="control-group">
+		            <label class="control-label" for="input01">工程名</label>
+		            <div class="controls">
+		              <select id="selectPro">
+		                <option>xblog</option>
+		                <option>blog7</option>
+		                <option>blog7icp</option>	                
+		              </select>
+		              <p class="help-block">也是输入的项目名称（用来压缩和发布）</p>
+		            </div>
+		          </div>
+		          <div class="control-group">
+		            <label class="control-label" for="optionsCheckbox">参数</label>
+		            <div class="controls">
+		              <label class="checkbox">
+		                <input type="checkbox" id="optionsCheckbox" checked="checked" value="1">
+						增量打包
+		              </label>
+		            </div>
+		          </div>
+		          <div class="control-group">
+		            <label class="control-label" for="select01">选择测试机</label>
+		            <div class="controls">
+		              <select id="select01">
+		                <option>10.210.227.109</option>
+		                <option>2</option>
+		                <option>3</option>
+		                <option>4</option>
+		                <option>5</option>
+		              </select>
+		            </div>
+		          </div>
+		          <div class="control-group">
+		            <label class="control-label" for="input01">svn用户名</label>
+		            <div class="controls">
+		              <input type="text" class="input-xlarge" id="input01">
+		            </div>
+		          </div>
+		          <div class="control-group">
+		            <label class="control-label" for="input01">svn密码</label>
+		            <div class="controls">
+		              <input type="text" class="input-xlarge" id="input01">
+		            </div>
+		          </div>
+		          
+		          <div class="form-actions">
+		            <button type="submit" class="btn btn-primary">打包！</button>
+		            <button class="btn">取消</button>
+		          </div>
+		        </fieldset>
+	        </form>
+        </div>
 	</body>
 </html>
