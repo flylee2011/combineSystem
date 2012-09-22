@@ -8,13 +8,13 @@ var routes = require('./routes');
 //var config = require('./config').config;
 
 var app = express();
+app.use(express.bodyParser());
 
 app.configure(function(){
   	app.set('port', 1426);
   	app.set('views', __dirname + '/view');
   	app.engine('html', require('ejs').renderFile);
   	app.use(app.router);
-  	//app.set('view engine', 'ejs');
   	
   	app.use(express.static(path.join(__dirname, 'public')));
 });

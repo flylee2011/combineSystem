@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+		<link rel='stylesheet' href='/css/bootstrap.css' />
+		<!-- <link rel='stylesheet' href='/css/bootstrap-responsive.css' /> -->
+		<style>
+		      body {
+		        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+		      }
+    		</style>
+	</head>
+	<body>
+		<div class="navbar navbar-fixed-top">
+		    <div class="navbar-inner">
+		        <div class="container">
+		        	<a class="brand" href="#">RIA打包系统</a>
+		        	<div class="nav-collapse">
+			          <ul class="nav">
+			            <li class="active"><a href="#">首页</a></li>
+			            <li><a href="#">link</a></li>
+			          </ul>
+			          <form class="navbar-search pull-left" action="">
+			            <input type="text" class="search-query span2" placeholder="搜索">
+			          </form>
+			          <ul class="nav pull-right">
+			            <li class="divider-vertical"></li>
+			            <li class="dropdown">
+			              <a href="#" class="dropdown-toggle" data-toggle="dropdown">用户名<b class="caret"></b></a>
+			              <ul class="dropdown-menu">
+						 <li><a href="#">动作</a></li>
+			                <li><a href="#">另一个动作</a></li>
+			                <li><a href="#">其他动作</a></li>
+			                <li class="divider"></li>
+			                <li class="nav-header">导航头</li>
+			                <li><a href="#">被间隔的链接</a></li>
+			                <li><a href="#">另一个链接</a></li>
+			              </ul>
+			            </li>
+			          </ul>
+			        </div>
+		        </div>
+		    </div>
+		</div>
+
+		<div class="container">
+			<form class="form-horizontal" action="combine" method="post">
+				<fieldset>
+		          	<legend>用户登入</legend>
+		          	<div class="control-group">
+			            <label class="control-label" for="input01">用户名</label>
+			            <div class="controls">
+			              <input type="text" class="input-xlarge" name="svnpath" id="input01">
+			              <p class="help-block"></p>
+			            </div>
+			          </div>
+			          <div class="control-group">
+			            <label class="control-label" for="input01">密码</label>
+			            <div class="controls">
+			              <input type="password" class="input-xlarge" name="svnpath" id="input01">
+			              <p class="help-block"></p>
+			            </div>
+			          </div>
+			          <div class="form-actions">
+			            <button type="submit" class="btn btn-primary">登入</button>
+			          </div>
+		          </fieldset>
+	        </form>
+        </div>
+	</body>
+</html>

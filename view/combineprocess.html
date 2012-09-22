@@ -3,10 +3,41 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel='stylesheet' href='/css/bootstrap.css' />
+		<script type="text/javascript" src="/js/jquery-1.6.2.js"></script>
 	</head>
 	<body>
 		<div class="container">
-			<%= stdout%>
-        </div>
+			<h1>combing...</h1>
+			<textarea id="packing-info" style="width:580px;min-height:280px;color:#fff;background-color:#000;font-size:12px;"></textarea>
+          </div>
+          <script type="text/javascript">
+          	var getInfo = function(t){
+			//$("#packing-info-bar").show();
+				$.ajax({
+					type : 'GET',
+					url  : '/api/getCombineInfo',
+					success : function(msg){
+						var regex = /.*\spackage-time/g;
+						if(regex.test(msg))
+						{
+							$(".container h1").html("打包完成").css("color","red");
+							clearInterval(t);
+						}
+
+						var infoEl = $("#packing-info");
+						infoEl.val(msg);
+
+						var ta = infoEl[0];
+						ta.scrollTop = ta.scrollHeight;
+					},
+					error : function(){
+					
+					}
+				});
+			}
+			// var timer = setInterval(function(){
+			// 	getInfo(timer);
+			// },1000);
+          </script>
 	</body>
 </html>
