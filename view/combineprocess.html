@@ -17,7 +17,7 @@
 					type : 'GET',
 					url  : '/api/getCombineInfo',
 					success : function(msg){
-						var regex = /.*\spackage-time/g;
+						var regex = /.*\s#END#/g;
 						if(regex.test(msg))
 						{
 							$(".container h1").html("打包完成").css("color","red");
@@ -35,9 +35,9 @@
 					}
 				});
 			}
-			// var timer = setInterval(function(){
-			// 	getInfo(timer);
-			// },1000);
+			var timer = setInterval(function(){
+				getInfo(timer);
+			},1000);
           </script>
 	</body>
 </html>

@@ -4,8 +4,8 @@
 #svn_user=flylee2011@sina.com
 #svn_pass=yifeilee09
 node_path=/usr/local/node/bin/node
-combinetool_path=/home/flylee/combineTool
-bulid_path=/home/flylee/workspace/build
+combinetool_path=/data0/combineTool
+bulid_path=/data0/build
 combine_type=1
 
 while getopts p:t:i:o:u:m:a:b: option
@@ -24,7 +24,7 @@ do
 	cmt=1
   ;;
  "u")
-	pack_user=$OPTARG
+	combine_user=$OPTARG
  ;;
  "m")
  	machine_ip=$OPTARG
@@ -46,15 +46,22 @@ done
 main(){
 	checkout
 	jscombine
-	
+	#echo $svn_path
+	#echo $product_name
+	#echo $increment
+	#echo $machine_ip
+	#echo $svn_user
+	#echo $svn_pass
+	#echo $combine_user
+	echo '#END#'
 }
 
 checkout(){
-	svn co $svn_path $bulid_path/1/$product_name/source
+	sudo -s svn co $svn_path $bulid_path/$combine_user/$product_name/source --username $svn_user --password $svn_pass
 }
 
 jscombine(){
-	$node_path $combinetool_path/js/main.js $bulid_path/1 $product_name -reset -minify
+	sudo -s $node_path $combinetool_path/js/main.js $bulid_path/$combine_user $product_name -reset -minify
 }
 
 main

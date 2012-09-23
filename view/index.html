@@ -10,6 +10,7 @@
 		        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
 		      }
     		</style>
+    		
 	</head>
 	<body>
 		<div class="navbar navbar-fixed-top">
@@ -27,15 +28,12 @@
 			          <ul class="nav pull-right">
 			            <li class="divider-vertical"></li>
 			            <li class="dropdown">
-			              <a href="#" class="dropdown-toggle" data-toggle="dropdown">用户名<b class="caret"></b></a>
+			              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= username%><b class="caret"></b></a>
 			              <ul class="dropdown-menu">
-						 <li><a href="#">动作</a></li>
-			                <li><a href="#">另一个动作</a></li>
-			                <li><a href="#">其他动作</a></li>
+						 <li><a href="/profile">我的资料</a></li>
 			                <li class="divider"></li>
-			                <li class="nav-header">导航头</li>
-			                <li><a href="#">被间隔的链接</a></li>
-			                <li><a href="#">另一个链接</a></li>
+			                <li class="nav-header"></li>
+			                <li><a href="/logout">退出</a></li>
 			              </ul>
 			            </li>
 			          </ul>
@@ -70,7 +68,7 @@
 		            <label class="control-label" for="optionsCheckbox">参数</label>
 		            <div class="controls">
 		              <label class="checkbox">
-		                <input type="checkbox" id="optionsCheckbox" name="para" checked="checked" value="1">
+		                <input type="checkbox" id="optionsCheckbox" name="increment" checked="checked" value="1">
 						增量打包
 		              </label>
 		            </div>
@@ -107,5 +105,9 @@
 		        </fieldset>
 	        </form>
         </div>
+        <script type="text/javascript" src="/js/jquery-1.8.2.min.js"></script>
+        <script type="text/javascript" src="/js/bootstrap-dropdown.js"></script>
+
+        
 	</body>
 </html>
