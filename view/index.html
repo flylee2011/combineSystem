@@ -47,14 +47,7 @@
 				<fieldset>
 		          <legend>打包JS</legend>
 		          <div class="control-group">
-		            <label class="control-label" for="input01">输入发布代码路径</label>
-		            <div class="controls">
-		              <input type="text" class="input-xlarge" name="svnpath" id="input01">
-		              <p class="help-block">注意：以"/"结尾，注意分支格式，默认"/"分割倒数第三个字符串为项目名称。</p>
-		            </div>
-		          </div>
-		          <div class="control-group">
-		            <label class="control-label" for="input01">工程名</label>
+		            <label class="control-label" for="selectPro">工程名</label>
 		            <div class="controls">
 		              <select name="proname" id="selectPro">
 		                <option>xblog</option>
@@ -62,6 +55,13 @@
 		                <option>blog7icp</option>	                
 		              </select>
 		              <p class="help-block">也是输入的项目名称（用来压缩和发布）</p>
+		            </div>
+		          </div>
+		          <div class="control-group">
+		            <label class="control-label" for="svnpath">输入发布代码路径</label>
+		            <div class="controls">
+		              <input type="text" style="width:550px;" class="input-xlarge" name="svnpath" id="svnpath">
+		              <p class="help-block">注意：默认"/"分割倒数第三个字符串为项目名称。</p>
 		            </div>
 		          </div>
 		          <div class="control-group">
@@ -74,24 +74,24 @@
 		            </div>
 		          </div>
 		          <div class="control-group">
-		            <label class="control-label" for="select01">选择测试机</label>
+		            <label class="control-label" for="machineip">选择测试机</label>
 		            <div class="controls">
-		              <select name="machineip" id="select01">
+		              <select name="machineip" id="machineip">
 		                <option>10.210.132.39</option>
 		                <option>10.210.227.109</option>
 		              </select>
 		            </div>
 		          </div>
 		          <div class="control-group">
-		            <label class="control-label" for="input01">svn用户名</label>
+		            <label class="control-label" for="svnuser">svn用户名</label>
 		            <div class="controls">
-		              <input name="svnuser" type="text" class="input-xlarge" id="input01">
+		              <input name="svnuser" type="text" class="input-xlarge" id="svnuser">
 		            </div>
 		          </div>
 		          <div class="control-group">
-		            <label class="control-label" for="input01">svn密码</label>
+		            <label class="control-label" for="svnpass">svn密码</label>
 		            <div class="controls">
-		              <input name="svnpass" type="password" class="input-xlarge" id="input01">
+		              <input name="svnpass" type="password" class="input-xlarge" id="svnpass">
 		            </div>
 		          </div>
 		          
