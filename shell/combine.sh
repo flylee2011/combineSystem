@@ -57,6 +57,7 @@ main(){
 }
 
 checkout(){
+	rm -rf $bulid_path/$combine_user/$product_name/source
 	svn co $svn_path $bulid_path/$combine_user/$product_name/source --username $svn_user --password $svn_pass
 }
 
