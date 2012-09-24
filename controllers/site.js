@@ -63,7 +63,7 @@ exports.combine = function (req, res, next) {
 		
 	// });
 
-	cmd_str = "sudo -s bash shell/combine.sh -t "+ postData.svnpath +" -p "+ postData.proname 
+	cmd_str = "bash shell/combine.sh -t "+ postData.svnpath +" -p "+ postData.proname 
 		+" -i "+ postData.increment +" -m "+ postData.machineip + " -a " + postData.svnuser
 		+" -b "+ postData.svnpass + " -u " + req.session.user.username +" 1>shell/"+ req.session.user.username +".log";
 
