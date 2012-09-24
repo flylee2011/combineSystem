@@ -57,11 +57,11 @@ main(){
 }
 
 checkout(){
-	sudo -s svn co $svn_path $bulid_path/$combine_user/$product_name/source --username $svn_user --password $svn_pass
+	co $svn_path $bulid_path/$combine_user/$product_name/source --username $svn_user --password $svn_pass
 }
 
 jscombine(){
-	sudo -s $node_path $combinetool_path/js/main.js $bulid_path/$combine_user $product_name -reset -minify
+	$node_path $combinetool_path/js/main.js $bulid_path/$combine_user $product_name -reset -minify
 }
 
 main
