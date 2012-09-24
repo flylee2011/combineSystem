@@ -3,6 +3,7 @@ var user_obj = {};
 
 exports.home = function(req, res, next) {
 	//res.send("hahah");
+	user_obj = req.session.user;
 	res.render('index.html', {
 		username : req.session.user.username
 	});

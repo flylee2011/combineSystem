@@ -48,6 +48,7 @@ main(){
 
 	checkout
 	jscombine
+	rsync
 	#echo $svn_path
 	#echo $product_name
 	#echo $increment
