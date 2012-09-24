@@ -61,11 +61,18 @@ main(){
 
 checkout(){
 	rm -rf $bulid_path/$combine_user/$product_name/source
+	echo "------------------start svn checkout-------------------------"
 	svn co $svn_path $bulid_path/$combine_user/$product_name/source --username $svn_user --password $svn_pass
 }
 
 jscombine(){
+	echo "------------------start jscombine----------------------------"
 	$node_path $combinetool_path/js/main.js $bulid_path/$combine_user $product_name -reset -minify
+}
+
+rsync(){
+	echo "------------------start rsync--------------------------------"
+	rsync -av $bulid_path/$combine_user/$product_name/publish root@$machine_ip::qing_js_rel/$product_name
 }
 
 print_end_time() {
