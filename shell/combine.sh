@@ -44,6 +44,8 @@ done
 
 
 main(){
+	gSTART=`date +%s%N`
+
 	checkout
 	jscombine
 	#echo $svn_path
@@ -53,6 +55,7 @@ main(){
 	#echo $svn_user
 	#echo $svn_pass
 	#echo $combine_user
+	print_end_time $gSTART
 	echo '#END#'
 }
 
@@ -63,6 +66,14 @@ checkout(){
 
 jscombine(){
 	$node_path $combinetool_path/js/main.js $bulid_path/$combine_user $product_name -reset -minify
+}
+
+print_end_time() {
+	#$1 $gSTART
+	gEND=`date +%s%N`
+	gELAPSED_TIME=`expr \( $gEND - $1 \) / 1000000`
+	echo "Elapsed time ${gELAPSED_TIME}ms"
+	echo "#END#"
 }
 
 main
