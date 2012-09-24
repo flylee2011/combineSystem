@@ -4,7 +4,7 @@
 #svn_user=flylee2011@sina.com
 #svn_pass=yifeilee09
 node_path=/usr/local/node/bin/node
-combinetool_path=/data0/combineTool
+combinetool_path=/data0/combine_shell
 bulid_path=/data0/build
 combine_type=1
 
