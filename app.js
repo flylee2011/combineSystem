@@ -35,4 +35,4 @@ app.listen(app.get('port'));
 routes(app);
 //module.exports = app;
 
-console.log("hello");
+console.log("Server Start!");
