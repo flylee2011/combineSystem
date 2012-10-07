@@ -20,7 +20,6 @@
 		        	<div class="nav-collapse">
 			          <ul class="nav">
 			            <li class="active"><a href="#">首页</a></li>
-			            <li><a href="#">link</a></li>
 			          </ul>
 			          <form class="navbar-search pull-left" action="">
 			            <input type="text" class="search-query span2" placeholder="搜索">
@@ -37,15 +36,25 @@
 			              </ul>
 			            </li>
 			          </ul>
-			        </div>
+			     </div>
 		        </div>
 		    </div>
 		</div>
 
+		
+
 		<div class="container">
-			<form class="form-horizontal" action="combine" method="post">
+			
+			  <ul class="nav nav-tabs">
+		          <li class="active"><a href="#js" data-toggle="tab">打包JS</a></li>
+		          <li><a href="#css" data-toggle="tab">打包CSS</a></li>
+		       </ul>
+
+		       
+		          <div class="tab-pane active" id="js">
+		            <form class="form-horizontal" action="combine" method="post">
 				<fieldset>
-		          <legend>打包JS</legend>
+		          <!-- <legend>打包JS</legend> -->
 		          <div class="control-group">
 		            <label class="control-label" for="selectPro">工程名</label>
 		            <div class="controls">
@@ -101,6 +110,16 @@
 		          </div>
 		        </fieldset>
 	        </form>
+		          </div>
+		          
+	          <div class="tab-pane" id="css">
+	            <p>这里是章节B</p>
+	          </div>
+		          
+		       
+			
+
+			
         </div>
         <script type="text/javascript" src="/js/jquery-1.8.2.min.js"></script>
         <script type="text/javascript" src="/js/bootstrap-dropdown.js"></script>
