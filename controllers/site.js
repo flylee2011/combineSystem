@@ -2,7 +2,6 @@ var User = require('../models/user');
 var user_obj = {};
 
 exports.home = function(req, res, next) {
-	//res.send("hahah");
 	user_obj = req.session.user;
 	res.render('index.html', {
 		username : req.session.user.username
@@ -10,7 +9,6 @@ exports.home = function(req, res, next) {
 };
 
 exports.login = function(req, res, next) {
-	//res.send("hahah");
 	res.render('login.html');
 };
 

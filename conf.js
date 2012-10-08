@@ -1,5 +1,5 @@
 module.exports = {
 	cookieSecret: 'riacombinebyyifei',
 	db: 'riacombine',
-	host: '127.0.0.1'
+	host: '10.210.227.109'
 };
