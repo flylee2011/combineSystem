@@ -3,23 +3,23 @@
 	<head>
 		<meta charset="utf-8" />
 		<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+		<title>RIA打包系统</title>
 		<link rel='stylesheet' href='/css/bootstrap.css' />
 		<!-- <link rel='stylesheet' href='/css/bootstrap-responsive.css' /> -->
 		<style>
-		      body {
-		        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-		      }
-    		</style>
-    		
+	        body {
+	    		padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+	      	}
+		</style>
 	</head>
 	<body>
 		<div class="navbar navbar-fixed-top">
 		    <div class="navbar-inner">
 		        <div class="container">
-		        	<a class="brand" href="#">RIA打包系统</a>
+		        	<a class="brand" href="/">RIA打包系统</a>
 		        	<div class="nav-collapse">
 			          <ul class="nav">
-			            <li class="active"><a href="#">首页</a></li>
+			            <li class="active"><a href="/">首页</a></li>
 			          </ul>
 			          <!-- <form class="navbar-search pull-left" action="">
 			            <input type="text" class="search-query span2" placeholder="搜索">
@@ -49,75 +49,134 @@
 	          <li><a href="#css" data-toggle="tab">打包CSS</a></li>
 	        </ul>
 
-		       
-          <div class="tab-pane active" id="js">
-            <form class="form-horizontal" action="combine" method="post">
-				<fieldset>
-		          <!-- <legend>打包JS</legend> -->
-		          <div class="control-group">
-		            <label class="control-label" for="selectPro">工程名</label>
-		            <div class="controls">
-		              <select name="proname" id="selectPro">
-		                <option>xblog</option>
-		                <option>blog7</option>
-		                <option>blog7icp</option>	                
-		              </select>
-		              <p class="help-block">也是输入的项目名称（用来压缩和发布）</p>
-		            </div>
-		          </div>
-		          <div class="control-group">
-		            <label class="control-label" for="svnpath">SVN路径</label>
-		            <div class="controls">
-		              <input type="text" style="width:550px;" class="input-xlarge" name="svnpath" id="svnpath">
-		              <p class="help-block">注意：默认"/"分割倒数第三个字符串为项目名称。</p>
-		            </div>
-		          </div>
-		          <div class="control-group">
-		            <label class="control-label" for="optionsCheckbox">参数</label>
-		            <div class="controls">
-		              <label class="checkbox">
-		                <input type="checkbox" id="optionsCheckbox" name="increment" checked="checked" value="1">
-						增量打包
-		              </label>
-		            </div>
-		          </div>
-		          <div class="control-group">
-		            <label class="control-label" for="machineip">选择测试机</label>
-		            <div class="controls">
-		              <select name="machineip" id="machineip">
-		                <option>10.210.132.39</option>
-		                <option>10.210.227.109</option>
-		              </select>
-		            </div>
-		          </div>
-		          <div class="control-group">
-		            <label class="control-label" for="svnuser">svn用户名</label>
-		            <div class="controls">
-		              <input name="svnuser" type="text" class="input-xlarge" id="svnuser">
-		            </div>
-		          </div>
-		          <div class="control-group">
-		            <label class="control-label" for="svnpass">svn密码</label>
-		            <div class="controls">
-		              <input name="svnpass" type="password" class="input-xlarge" id="svnpass">
-		            </div>
-		          </div>
-		          
-		          <div class="form-actions">
-		            <button type="submit" class="btn btn-primary">打包！</button>
-		            <button class="btn">取消</button>
-		          </div>
-		        </fieldset>
-	        </form>
-          </div>
-		          
-	          <div class="tab-pane" id="css">
-	            <p>这里是打包CSS</p>
-	          </div>
+		    <div class="tab-content">
+	            <div class="tab-pane active" id="js">
+	              <form class="form-horizontal" action="combinejs" method="post">
+					<fieldset>
+			          <!-- <legend>打包JS</legend> -->
+			          <div class="control-group">
+			            <label class="control-label" for="selectPro">工程名</label>
+			            <div class="controls">
+			              <select name="proname" id="selectPro">
+			                <option>xblog</option>
+			                <option>blog7</option>
+			                <option>blog7icp</option>	                
+			              </select>
+			              <p class="help-block">也是输入的项目名称（用来压缩和发布）</p>
+			            </div>
+			          </div>
+			          <div class="control-group">
+			            <label class="control-label" for="svnpath">SVN路径</label>
+			            <div class="controls">
+			              <input type="text" style="width:550px;" class="input-xlarge" name="svnpath" id="svnpath">
+			              <p class="help-block">注意：默认"/"分割倒数第三个字符串为项目名称。</p>
+			            </div>
+			          </div>
+			          <div class="control-group">
+			            <label class="control-label" for="optionsCheckbox">参数</label>
+			            <div class="controls">
+			              <label class="checkbox">
+			                <input type="checkbox" id="optionsCheckbox" name="increment" checked="checked" value="1">
+							增量打包
+			              </label>
+			            </div>
+			          </div>
+			          <div class="control-group">
+			            <label class="control-label" for="machineip">选择测试机</label>
+			            <div class="controls">
+			              <select name="machineip" id="machineip">
+			                <option>10.210.132.39</option>
+			                <option>10.210.227.109</option>
+			              </select>
+			            </div>
+			          </div>
+			          <div class="control-group">
+			            <label class="control-label" for="svnuser">svn用户名</label>
+			            <div class="controls">
+			              <input name="svnuser" type="text" class="input-xlarge" id="svnuser">
+			            </div>
+			          </div>
+			          <div class="control-group">
+			            <label class="control-label" for="svnpass">svn密码</label>
+			            <div class="controls">
+			              <input name="svnpass" type="password" class="input-xlarge" id="svnpass">
+			            </div>
+			          </div>
+			          
+			          <div class="form-actions">
+			            <button type="submit" class="btn btn-primary">打包！</button>
+			            <button class="btn">取消</button>
+			          </div>
+			        </fieldset>
+		          </form>
+	            </div>
+			    
+		        <div class="tab-pane" id="css">
+		            <form class="form-horizontal" action="combinecss" method="post">
+					<fieldset>
+			          <!-- <legend>打包CSS</legend> -->
+			          <div class="control-group">
+			            <label class="control-label" for="selectPro2">工程名</label>
+			            <div class="controls">
+			              <select name="proname" id="selectPro2">
+			                <option>xblogstyle</option>
+			                <option>blog7style</option>
+			              </select>
+			              <p class="help-block">也是输入的项目名称（用来压缩和发布）</p>
+			            </div>
+			          </div>
+			          <div class="control-group">
+			            <label class="control-label" for="svnpath">SVN路径</label>
+			            <div class="controls">
+			              <input type="text" style="width:550px;" class="input-xlarge" name="svnpath" id="svnpath">
+			              <p class="help-block">注意：默认"/"分割倒数第三个字符串为项目名称。</p>
+			            </div>
+			          </div>
+			          <div class="control-group">
+			            <label class="control-label" for="optionsCheckbox2">参数</label>
+			            <div class="controls">
+			              <label class="checkbox">
+			                <input type="checkbox" id="optionsCheckbox2" name="increment" checked="checked" value="1">
+							增量打包
+			              </label>
+			            </div>
+			          </div>
+			          <div class="control-group">
+			            <label class="control-label" for="machineip2">选择测试机</label>
+			            <div class="controls">
+			              <select name="machineip" id="machineip2">
+			                <option>10.210.132.39</option>
+			                <option>10.210.227.109</option>
+			              </select>
+			            </div>
+			          </div>
+			          <div class="control-group">
+			            <label class="control-label" for="svnuser">svn用户名</label>
+			            <div class="controls">
+			              <input name="svnuser" type="text" class="input-xlarge" id="svnuser">
+			            </div>
+			          </div>
+			          <div class="control-group">
+			            <label class="control-label" for="svnpass">svn密码</label>
+			            <div class="controls">
+			              <input name="svnpass" type="password" class="input-xlarge" id="svnpass">
+			            </div>
+			          </div>
+			          
+			          <div class="form-actions">
+			            <button type="submit" class="btn btn-primary">打包！</button>
+			            <button class="btn">取消</button>
+			          </div>
+			        </fieldset>
+		          </form>
+		        </div>
+	    	</div>
 		    		
         </div>
+
         <script type="text/javascript" src="/js/jquery-1.8.2.min.js"></script>
         <script type="text/javascript" src="/js/bootstrap-dropdown.js"></script>
+        <script type="text/javascript" src="/js/bootstrap-tab.js"></script>
 
         
 	</body>

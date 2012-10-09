@@ -9,7 +9,7 @@ module.exports = function (app) {
 	app.get('/login', site.login);
 	app.get('/logout', site.logout);
 	app.post('/login', site.doLogin);
-	app.post('/combine', site.combine);
+	app.post('/combinejs', site.combinejs);
 	app.get('/api/getCombineInfo', site.getCombineInfo);
 
 	function checklogin(req, res, next){

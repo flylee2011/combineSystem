@@ -46,7 +46,7 @@ exports.getCombineInfo = function(req, res){
 }
 
 //
-exports.combine = function (req, res, next) {
+exports.combinejs = function (req, res, next) {
 	
 	var exec = require('child_process').exec, child;
 	
@@ -55,23 +55,22 @@ exports.combine = function (req, res, next) {
 	var cmd_str;
 
 	// User.get(req.session.username, function(err, user){
-		
 	// 	buildnum = user.buildnum + 1;
 	// 	console.log(buildnum);
-
-		
 	// });
 
 	cmd_str = "bash shell/combine.sh -t "+ postData.svnpath +" -p "+ postData.proname 
 		+" -i "+ postData.increment +" -m "+ postData.machineip + " -a " + postData.svnuser
 		+" -b "+ postData.svnpass + " -u " + req.session.user.username +" 1>shell/"+ req.session.user.username +".log";
 
-	res.render('combineprocess.html');
-	console.log(cmd_str);
-
-	child = exec(cmd_str, function(error, stdout, stderr){
-		console.log(error);
+	res.render('combineprocess.html', {
+		username : req.session.user.username
 	});
+	console.log(cmd_str);
+	console.log(req.session.user.username);
 
+	// child = exec(cmd_str, function(error, stdout, stderr){
+	// 	console.log(error);
+	// });
 	
 };
