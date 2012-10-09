@@ -48,7 +48,7 @@ main(){
 
 	checkout
 	jscombine
-	rsync
+	rsyncfile
 	#echo $svn_path
 	#echo $product_name
 	#echo $increment
@@ -71,9 +71,9 @@ jscombine(){
 	$node_path $combinetool_path/js/main.js $bulid_path/$combine_user $product_name -reset -minify
 }
 
-rsync(){
+rsyncfile(){
 	echo "------------------start rsync--------------------------------"
-	rsync -av $bulid_path/$combine_user/$product_name/publish root@$machine_ip::qing_js_rel/$product_name
+	rsync -av $bulid_path/$combine_user/$product_name/publish_mini root@$machine_ip::qing_js_rel/$product_name
 }
 
 print_end_time() {
