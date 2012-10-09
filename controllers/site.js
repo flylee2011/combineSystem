@@ -69,8 +69,8 @@ exports.combinejs = function (req, res, next) {
 	console.log(cmd_str);
 	console.log(req.session.user.username);
 
-	// child = exec(cmd_str, function(error, stdout, stderr){
-	// 	console.log(error);
-	// });
+	child = exec(cmd_str, function(error, stdout, stderr){
+		console.log(error);
+	});
 	
 };
