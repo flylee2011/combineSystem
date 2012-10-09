@@ -58,6 +58,9 @@ exports.combinejs = function (req, res, next) {
 	// 	buildnum = user.buildnum + 1;
 	// 	console.log(buildnum);
 	// });
+	if(postData.increment === undefined){
+		postData.increment = "0";
+	}
 
 	cmd_str = "bash shell/combine.sh -t "+ postData.svnpath +" -p "+ postData.proname 
 		+" -i "+ postData.increment +" -m "+ postData.machineip + " -a " + postData.svnuser
@@ -66,11 +69,13 @@ exports.combinejs = function (req, res, next) {
 	res.render('combineprocess.html', {
 		username : req.session.user.username
 	});
+	console.log(postData);
+	console.log(postData.increment);
 	console.log(cmd_str);
 	console.log(req.session.user.username);
 
-	child = exec(cmd_str, function(error, stdout, stderr){
-		console.log(error);
-	});
+	// child = exec(cmd_str, function(error, stdout, stderr){
+	// 	console.log(error);
+	// });
 	
 };
