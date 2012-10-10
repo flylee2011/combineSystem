@@ -69,13 +69,13 @@ exports.combinejs = function (req, res, next) {
 	res.render('combineprocess.html', {
 		username : req.session.user.username
 	});
-	console.log(postData);
-	console.log(postData.increment);
-	console.log(cmd_str);
-	console.log(req.session.user.username);
+	// console.log(postData);
+	// console.log(postData.increment);
+	// console.log(cmd_str);
+	// console.log(req.session.user.username);
 
-	// child = exec(cmd_str, function(error, stdout, stderr){
-	// 	console.log(error);
-	// });
+	child = exec(cmd_str, function(error, stdout, stderr){
+		console.log(error);
+	});
 	
 };
