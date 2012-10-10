@@ -71,7 +71,7 @@ exports.combinejs = function (req, res, next) {
 	});
 	// console.log(postData);
 	// console.log(postData.increment);
-	// console.log(cmd_str);
+	console.log(cmd_str);
 	// console.log(req.session.user.username);
 
 	child = exec(cmd_str, function(error, stdout, stderr){
