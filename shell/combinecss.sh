@@ -47,7 +47,7 @@ main(){
 
 	svncheckout
 	csscombine
-	#rsyncfile
+	rsyncfile
 	#echo $svn_path
 	#echo $product_name
 	#echo $increment
