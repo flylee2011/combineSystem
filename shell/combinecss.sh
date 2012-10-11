@@ -1,12 +1,11 @@
 #!/bin/bash
 # SINA RIA PUBLISH TOOL
-
+# This is combine css shell
 #svn_user=flylee2011@sina.com
 #svn_pass=yifeilee09
 node_path=/usr/local/node/bin/node
 combinetool_path=/data0/combine_shell
-bulid_path=/data0/build
-combine_type=1
+bulid_path=/data0/build/css
 
 while getopts p:t:i:o:u:m:a:b: option
 do
@@ -46,9 +45,9 @@ done
 main(){
 	gSTART=`date +%s%N`
 
-	checkout
-	jscombine
-	rsyncfile
+	svncheckout
+	csscombine
+	#rsyncfile
 	#echo $svn_path
 	#echo $product_name
 	#echo $increment
@@ -60,19 +59,19 @@ main(){
 	echo '#END#'
 }
 
-checkout(){
+svncheckout(){
 	rm -rf $bulid_path/$combine_user/$product_name/source
 	echo "------------------start svn checkout-------------------------"
 	svn co $svn_path $bulid_path/$combine_user/$product_name/source --username $svn_user --password $svn_pass
 }
 
-jscombine(){
+csscombine(){
 	if [ $increment == 1 ]; then
-		echo "------------------start jscombine increment----------------------------"
-		$node_path $combinetool_path/js/main.js $bulid_path/$combine_user $product_name -minify	
+		echo "------------------start csscombine increment----------------------------"
+		$node_path $combinetool_path/css/main.js $bulid_path/$combine_user $product_name
 	else
-		echo "------------------start jscombine reset----------------------------"
-		$node_path $combinetool_path/js/main.js $bulid_path/$combine_user $product_name -reset -minify
+		echo "------------------start csscombine reset----------------------------"
+		$node_path $combinetool_path/css/main.js $bulid_path/$combine_user $product_name -reset
 	fi
 }
 
