@@ -37,40 +37,81 @@
 		</div>
 
 		<div class="container">
-			<h1>正在打包JS...</h1>
+			<h1>正在打包<%= type%>...</h1>
 			<textarea id="packing-info" style="width:580px;min-height:280px;color:#fff;background-color:#000;font-size:12px;"></textarea>
 			<p><a href="/">返回首页</a></p>
 	    </div>
 
 	    <script type="text/javascript" src="/js/jquery-1.8.2.min.js"></script>
         <script type="text/javascript" src="/js/bootstrap-dropdown.js"></script>
-        <script type="text/javascript">
-          	var getInfo = function(t){
-				$.ajax({
-					type : 'GET',
-					url  : '/api/getCombineInfo',
-					success : function(msg){
-						var regex = /.*\s#END#/g;
-						if(regex.test(msg))
-						{
-							$(".container h1").html("打包完成").css("color","red");
-							clearInterval(t);
+
+        <% if(type === "CSS"){ %>
+        	<script type="text/javascript">
+        		var url = "/api/getCombineCSSInfo";
+        		console.log(url);
+
+        		var getInfo = function(t){
+					$.ajax({
+						type : 'GET',
+						url  : url,
+						success : function(msg){
+							var regex = /.*\s#END#/g;
+							if(regex.test(msg))
+							{
+								$(".container h1").html("打包完成").css("color","red");
+								clearInterval(t);
+							}
+
+							var infoEl = $("#packing-info");
+							infoEl.val(msg);
+
+							var ta = infoEl[0];
+							ta.scrollTop = ta.scrollHeight;
+						},
+						error : function(){
+						
 						}
+					});
+				}
+				var timer = setInterval(function(){
+					getInfo(timer);
+				},1000);
 
-						var infoEl = $("#packing-info");
-						infoEl.val(msg);
+        	</script>
+        <% } %>
 
-						var ta = infoEl[0];
-						ta.scrollTop = ta.scrollHeight;
-					},
-					error : function(){
-					
-					}
-				});
-			}
-			var timer = setInterval(function(){
-				getInfo(timer);
-			},1000);
-        </script>
+        <% if(type === "JS"){ %>
+        	<script type="text/javascript">
+        		var url = "/api/getCombineInfo";
+
+        		var getInfo = function(t){
+					$.ajax({
+						type : 'GET',
+						url  : url,
+						success : function(msg){
+							var regex = /.*\s#END#/g;
+							if(regex.test(msg))
+							{
+								$(".container h1").html("打包完成").css("color","red");
+								clearInterval(t);
+							}
+
+							var infoEl = $("#packing-info");
+							infoEl.val(msg);
+
+							var ta = infoEl[0];
+							ta.scrollTop = ta.scrollHeight;
+						},
+						error : function(){
+						
+						}
+					});
+				}
+				var timer = setInterval(function(){
+					getInfo(timer);
+				},1000);
+        	</script>
+        <% } %>
+        
 	</body>
 </html>

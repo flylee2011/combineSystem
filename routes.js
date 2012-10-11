@@ -10,7 +10,9 @@ module.exports = function (app) {
 	app.get('/logout', site.logout);
 	app.post('/login', site.doLogin);
 	app.post('/combinejs', site.combinejs);
+	app.post('/combinecss', site.combinecss);
 	app.get('/api/getCombineInfo', site.getCombineInfo);
+	app.get('/api/getCombineCSSInfo', site.getCombineCSSInfo);
 
 	function checklogin(req, res, next){
 		if (!req.session.user) {
