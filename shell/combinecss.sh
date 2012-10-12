@@ -48,29 +48,41 @@ main(){
 	svncheckout
 	csscombine
 	rsyncfile
-	#echo $svn_path
-	#echo $product_name
-	#echo $increment
-	#echo $machine_ip
-	#echo $svn_user
-	#echo $svn_pass
-	#echo $combine_user
+	
 	print_end_time $gSTART
 	echo '#END#'
 }
 
 svncheckout(){
 	workspace=$bulid_path/$combine_user/$product_name/source
-	# if [ -d "$workspace" ]; then
 
+	#check source code from svn exist or not
+	if [ -d "$workspace" ]; then
+		BRANCH_INFO=`svn info $workspace | grep "URL: http" | awk '{if(match($0,/https:/)) print substr($0,RSTART,length($0))}'`
+		echo "===>>>>>>pack svn path: ${svn_path}"
+		echo "===>>>>>>local directory branch: `svn info $workspace | grep URL`"
+		#same svn path, so update the branch
+		if [ $svn_path == $BRANCH_INFO ]; then
+			echo "===>>>>>>svn update begin<<<<<<===" 
+			svn update $workspace --username $svn_user --password $svn_pass
+			echo "===>>>>>>svn update end<<<<<<<<==="
+		#diff svn path, go switch or checkout	
+		else
+			rm -rf $workspace
+			echo "===>>>>>>svn checkout begin<<<<<<==="
+			svn co $svn_path $bulid_path/$combine_user/$product_name/source --username $svn_user --password $svn_pass
+			echo "===>>>>>>svn checkout end<<<<<<==="
+		fi
+	#source code from svn is not exist, do svn checkout
+	else
+		echo "===>>>>>>svn checkout begin<<<<<<==="
+		svn co $svn_path $bulid_path/$combine_user/$product_name/source --username $svn_user --password $svn_pass
+		echo "===>>>>>>svn checkout end<<<<<<==="
+	fi
 
-	# else
-
-	# fi
-
-	rm -rf $bulid_path/$combine_user/$product_name/source
-	echo "------------------start svn checkout-------------------------"
-	svn co $svn_path $bulid_path/$combine_user/$product_name/source --username $svn_user --password $svn_pass
+	# rm -rf $bulid_path/$combine_user/$product_name/source
+	# echo "------------------start svn checkout-------------------------"
+	# svn co $svn_path $bulid_path/$combine_user/$product_name/source --username $svn_user --password $svn_pass
 }
 
 csscombine(){
