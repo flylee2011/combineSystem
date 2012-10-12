@@ -60,6 +60,14 @@ main(){
 }
 
 svncheckout(){
+	workspace=$bulid_path/$combine_user/$product_name/source
+	# if [ -d "$workspace" ]; then
+
+
+	# else
+
+	# fi
+
 	rm -rf $bulid_path/$combine_user/$product_name/source
 	echo "------------------start svn checkout-------------------------"
 	svn co $svn_path $bulid_path/$combine_user/$product_name/source --username $svn_user --password $svn_pass

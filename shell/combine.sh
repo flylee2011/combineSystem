@@ -5,7 +5,7 @@
 #svn_pass=yifeilee09
 node_path=/usr/local/node/bin/node
 combinetool_path=/data0/combine_shell
-bulid_path=/data0/build
+bulid_path=/data0/build/js
 combine_type=1
 
 while getopts p:t:i:o:u:m:a:b: option
