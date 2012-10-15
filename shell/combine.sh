@@ -46,7 +46,7 @@ done
 main(){
 	gSTART=`date +%s%N`
 
-	#checkout
+	#svncheck
 	svncheckout
 	jscombine
 	rsyncfile
@@ -59,6 +59,10 @@ main(){
 	#echo $combine_user
 	print_end_time $gSTART
 	echo '#END#'
+}
+
+svncheck(){
+
 }
 
 svncheckout(){
@@ -92,23 +96,28 @@ svncheckout(){
 
 checkout(){
 	rm -rf $bulid_path/$combine_user/$product_name/source
-	echo "------------------start svn checkout-------------------------"
+	echo "===>>>>>>start svn checkout<<<<<<==="
 	svn co $svn_path $bulid_path/$combine_user/$product_name/source --username $svn_user --password $svn_pass
 }
 
 jscombine(){
 	if [ $increment == 1 ]; then
-		echo "------------------start jscombine increment----------------------------"
+		echo "===>>>>>>start jscombine increment<<<<<<==="
 		$node_path $combinetool_path/js/main.js $bulid_path/$combine_user $product_name -minify	
 	else
-		echo "------------------start jscombine reset----------------------------"
+		echo "===>>>>>>start jscombine reset<<<<<<==="
 		$node_path $combinetool_path/js/main.js $bulid_path/$combine_user $product_name -reset -minify
 	fi
 }
 
 rsyncfile(){
-	echo "------------------start rsync--------------------------------"
+	echo "===>>>>>>start rsync<<<<<<==="
 	rsync -av $bulid_path/$combine_user/$product_name/publish_mini root@$machine_ip::qing_js_rel/$product_name
+	rsync -av $bulid_path/$combine_user/$product_name/publish root@$machine_ip::qing_js_rel/$product_name
+}
+
+svncommit(){
+
 }
 
 print_end_time() {
