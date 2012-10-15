@@ -61,9 +61,6 @@ main(){
 	echo '#END#'
 }
 
-svncheck(){
-
-}
 
 svncheckout(){
 	workspace=$bulid_path/$combine_user/$product_name/source
@@ -116,9 +113,6 @@ rsyncfile(){
 	rsync -av $bulid_path/$combine_user/$product_name/publish root@$machine_ip::qing_js_rel/$product_name
 }
 
-svncommit(){
-
-}
 
 print_end_time() {
 	#$1 $gSTART
