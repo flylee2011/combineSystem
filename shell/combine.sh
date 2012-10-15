@@ -73,19 +73,19 @@ svncheckout(){
 		#same svn path, so update the branch
 		if [ $svn_path == $BRANCH_INFO ]; then
 			echo "===>>>>>>svn update begin<<<<<<===" 
-			svn update $workspace --username $svn_user --password $svn_pass
+			svn update $workspace --username $svn_user --password $svn_pass --trust-server-cert --non-interactive
 			echo "===>>>>>>svn update end<<<<<<<<==="
 		#diff svn path, go switch or checkout	
 		else
 			rm -rf $workspace
 			echo "===>>>>>>svn checkout begin<<<<<<==="
-			svn co $svn_path $bulid_path/$combine_user/$product_name/source --username $svn_user --password $svn_pass
+			svn co $svn_path $bulid_path/$combine_user/$product_name/source --username $svn_user --password $svn_pass --trust-server-cert --non-interactive
 			echo "===>>>>>>svn checkout end<<<<<<==="
 		fi
 	#source code from svn is not exist, do svn checkout
 	else
 		echo "===>>>>>>svn checkout begin<<<<<<==="
-		svn co $svn_path $bulid_path/$combine_user/$product_name/source --username $svn_user --password $svn_pass
+		svn co $svn_path $bulid_path/$combine_user/$product_name/source --username $svn_user --password $svn_pass --trust-server-cert --non-interactive
 		echo "===>>>>>>svn checkout end<<<<<<==="
 	fi
 }

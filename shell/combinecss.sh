@@ -64,19 +64,19 @@ svncheckout(){
 		#same svn path, so update the branch
 		if [ $svn_path == $BRANCH_INFO ]; then
 			echo "===>>>>>>svn update begin<<<<<<===" 
-			svn update $workspace --username $svn_user --password $svn_pass
+			svn update $workspace --username $svn_user --password $svn_pass --trust-server-cert --non-interactive
 			echo "===>>>>>>svn update end<<<<<<<<==="
 		#diff svn path, go switch or checkout	
 		else
 			rm -rf $workspace
 			echo "===>>>>>>svn checkout begin<<<<<<==="
-			svn co $svn_path $bulid_path/$combine_user/$product_name/source --username $svn_user --password $svn_pass
+			svn co $svn_path $bulid_path/$combine_user/$product_name/source --username $svn_user --password $svn_pass --trust-server-cert --non-interactive
 			echo "===>>>>>>svn checkout end<<<<<<==="
 		fi
 	#source code from svn is not exist, do svn checkout
 	else
 		echo "===>>>>>>svn checkout begin<<<<<<==="
-		svn co $svn_path $bulid_path/$combine_user/$product_name/source --username $svn_user --password $svn_pass
+		svn co $svn_path $bulid_path/$combine_user/$product_name/source --username $svn_user --password $svn_pass --trust-server-cert --non-interactive
 		echo "===>>>>>>svn checkout end<<<<<<==="
 	fi
 
@@ -87,16 +87,16 @@ svncheckout(){
 
 csscombine(){
 	if [ $increment == 1 ]; then
-		echo "------------------start csscombine increment----------------------------"
+		echo "===>>>>>>start csscombine increment<<<<<<==="
 		$node_path $combinetool_path/css/main.js $bulid_path/$combine_user $product_name
 	else
-		echo "------------------start csscombine reset----------------------------"
+		echo "===>>>>>>start csscombine reset<<<<<<==="
 		$node_path $combinetool_path/css/main.js $bulid_path/$combine_user $product_name -reset
 	fi
 }
 
 rsyncfile(){
-	echo "------------------start rsync--------------------------------"
+	echo "===>>>>>>start rsync<<<<<<==="
 	rsync -av $bulid_path/$combine_user/$product_name/publish root@$machine_ip::qing_js_rel/$product_name
 }
 
