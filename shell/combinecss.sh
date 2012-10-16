@@ -97,7 +97,7 @@ csscombine(){
 
 rsyncfile(){
 	echo "===>>>>>>start rsync<<<<<<==="
-	rsync -av $bulid_path/$combine_user/$product_name/publish root@$machine_ip::qing_js_rel/$product_name
+	rsync -av $bulid_path/$combine_user/$product_name/publish/ root@$machine_ip::qing_js_rel/$product_name
 }
 
 print_end_time() {
