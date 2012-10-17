@@ -89,10 +89,14 @@
 						type : 'GET',
 						url  : url,
 						success : function(msg){
-							var regex = /.*\s#END#/g;
-							if(regex.test(msg))
-							{
+							var regex_end = /.*\s#END#/g;
+							var regex_error = /.*\s#ERROR#/g;
+							if(regex_end.test(msg)){
 								$(".container h1").html("打包完成").css("color","red");
+								clearInterval(t);
+							}
+							if(regex_error.test(msg)){
+								$(".container h1").html("打包出错！").css("color","red");
 								clearInterval(t);
 							}
 

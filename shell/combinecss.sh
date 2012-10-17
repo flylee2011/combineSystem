@@ -93,11 +93,22 @@ csscombine(){
 		echo "===>>>>>>start csscombine reset<<<<<<==="
 		$node_path $combinetool_path/css/main.js $bulid_path/$combine_user $product_name -reset
 	fi
+
+	if [ $? == 1 ]; then
+		echo "node combine error!!!"
+		echo "#ERROR#"
+		exit 1
+	fi
 }
 
 rsyncfile(){
 	echo "===>>>>>>start rsync<<<<<<==="
 	rsync -av $bulid_path/$combine_user/$product_name/publish/ root@$machine_ip::qing_js_rel/$product_name
+	if [ $? == 1 ]; then
+		echo "node combine error!!!"
+		echo "#ERROR#"
+		exit 1
+	fi
 }
 
 print_end_time() {

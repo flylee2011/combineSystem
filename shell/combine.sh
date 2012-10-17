@@ -50,15 +50,9 @@ main(){
 	svncheckout
 	jscombine
 	rsyncfile
-	#echo $svn_path
-	#echo $product_name
-	#echo $increment
-	#echo $machine_ip
-	#echo $svn_user
-	#echo $svn_pass
-	#echo $combine_user
-	print_end_time $gSTART
 	echo '#END#'
+	
+	print_end_time $gSTART
 }
 
 
@@ -105,12 +99,23 @@ jscombine(){
 		echo "===>>>>>>start jscombine reset<<<<<<==="
 		$node_path $combinetool_path/js/main.js $bulid_path/$combine_user $product_name -reset -minify
 	fi
+	#return $?
+	if [ $? == 1 ]; then
+		echo "node combine error!!!"
+		echo "#ERROR#"
+		exit 1
+	fi
 }
 
 rsyncfile(){
 	echo "===>>>>>>start rsync<<<<<<==="
 	rsync -av $bulid_path/$combine_user/$product_name/publish_mini root@$machine_ip::qing_js_rel/$product_name
 	rsync -av $bulid_path/$combine_user/$product_name/publish root@$machine_ip::qing_js_rel/$product_name
+	if [ $? == 1 ]; then
+		echo "rsyncfile error!!!"
+		echo "#ERROR#"
+		exit 1
+	fi
 }
 
 

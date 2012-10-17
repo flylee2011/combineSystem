@@ -1,3 +1,44 @@
+function jsformcheck() {
+	var svnpath1 = $("#svnpath1").val(),
+		svnuser1 = $("#svnuser1").val(),
+		svnpass1 = $("#svnpass1").val();
+
+	
+	if(svnpath1 === ""){
+		alert("svn地址不能为空！");
+		return false;
+	}
+	if(svnuser1 === ""){
+		alert("svn用户名不能为空！");
+		return false;
+	}
+	if(svnpass1 === ""){
+		alert("svn密码不能为空！");
+		return false;
+	}
+	return true;
+}
+
+function cssformcheck() {
+	var svnpath2 = $("#svnpath2").val(),
+		svnuser2 = $("#svnuser2").val(),
+		svnpass2 = $("#svnpass2").val();
+
+	
+	if(svnpath2 === ""){
+		alert("svn地址不能为空！");
+		return false;
+	}
+	if(svnuser2 === ""){
+		alert("svn用户名不能为空！");
+		return false;
+	}
+	if(svnpass2 === ""){
+		alert("svn密码不能为空！");
+		return false;
+	}
+	return true;
+}
 
 function setStorage() {
 	if(window.localStorage) {

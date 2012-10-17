@@ -51,7 +51,7 @@
 
 		    <div class="tab-content">
 	            <div class="tab-pane active" id="js">
-	              <form class="form-horizontal" action="combinejs" method="post">
+	              <form onsubmit="return jsformcheck()" class="form-horizontal" action="combinejs" method="post">
 					<fieldset>
 			          <!-- <legend>打包JS</legend> -->
 			          <div class="control-group">
@@ -118,7 +118,7 @@
 	            </div>
 			    
 		        <div class="tab-pane" id="css">
-		            <form class="form-horizontal" action="combinecss" method="post">
+		            <form onsubmit="return cssformcheck()" class="form-horizontal" action="combinecss" method="post">
 					<fieldset>
 			          <!-- <legend>打包CSS</legend> -->
 			          <div class="control-group">
@@ -126,7 +126,9 @@
 			            <div class="controls">
 			              <select name="proname" id="selectPro2">
 			                <option>xblogstyle</option>
-			                <option>blog7style</option>
+			                <% if(username === "admin") { %>
+			                	<option>blog7style</option>
+			                <% } %>
 			              </select>
 			              <p class="help-block">也是输入的项目名称（用来压缩和发布）</p>
 			            </div>

@@ -70,7 +70,7 @@ exports.combinejs = function (req, res, next) {
 
 	cmd_str = "bash shell/combine.sh -t "+ postData.svnpath +" -p "+ postData.proname 
 		+" -i "+ postData.increment +" -m "+ postData.machineip + " -a " + postData.svnuser
-		+" -b "+ postData.svnpass + " -u " + req.session.user.username +" 1>shell/"+ req.session.user.username +"_js.log";
+		+" -b "+ postData.svnpass + " -u " + req.session.user.username +" > shell/"+ req.session.user.username +"_js.log" + " 2>&1";
 
 	res.render('combineprocess.html', {
 		username : req.session.user.username,
@@ -99,7 +99,7 @@ exports.combinecss = function (req, res, next) {
 
 	cmd_str = "bash shell/combinecss.sh -t "+ postData.svnpath +" -p "+ postData.proname 
 		+" -i "+ postData.increment +" -m "+ postData.machineip + " -a " + postData.svnuser
-		+" -b "+ postData.svnpass + " -u " + req.session.user.username +" 1>shell/"+ req.session.user.username +"_css.log";
+		+" -b "+ postData.svnpass + " -u " + req.session.user.username +" > shell/"+ req.session.user.username +"_css.log" + " 2>&1";
 
 	res.render('combineprocess.html', {
 		username : req.session.user.username,
