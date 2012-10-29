@@ -7,6 +7,7 @@ node_path=/usr/local/node/bin/node
 combinetool_path=/data0/combine_shell
 bulid_path=/data0/build/js
 combine_type=1
+online_path=/data1/nginx/htdocs/online
 
 while getopts p:t:i:o:u:m:a:b: option
 do
@@ -117,6 +118,49 @@ rsyncfile(){
 		exit 1
 	fi
 }
+
+# svncommit() {
+# 	echo "Commit tag"
+# 	#svn_root=https://svn.intra.sina.com.cn/icplatform/tech/ria_online
+# 	svn_root=https://svn.sinaapp.com/flycode/1/ria_online
+
+# 	path=`echo $svn_path | sed 's/.*\///g'`
+	
+# 	echo "Tag Name :"$path
+	
+# 	trunk_path=$svn_root/$product_name/trunk
+# 	echo "trunk_path :"$trunk_path
+	
+# 	tag_path=$svn_root/$product_name/tags/${path}_v3
+# 	echo "tag_path :"$tag_path
+# 	local localTrunkTmpPath=$online_path/_tmp/$product_name
+	
+# 	rm -rf $localTrunkTmpPath
+	
+# 	mkdir -p $localTrunkTmpPath
+
+# 	svn --username $svn_user --password $svn_pass --trust-server-cert --non-interactive co $trunk_path $localTrunkTmpPath
+# 	cp -rf $online_path/$product_name/* $localTrunkTmpPath/
+# 	svn --username $svn_user --password $svn_pass --trust-server-cert --non-interactive add $localTrunkTmpPath/* --force
+# 	svn --username $svn_user --password $svn_pass --trust-server-cert --non-interactive commit $localTrunkTmpPath -m "test message"
+	
+# 	# check tag isn't exist
+# 	exist=`svn --username $svn_user --password $svn_pass --trust-server-cert --non-interactive info $tag_path | grep URL: | wc -l`
+# 	if [ $exist = 1 ] ;then
+# 		echo ========================================== 
+# 		echo ERROR : $tag_path has already exist!!
+# 		echo ========================================== 
+# 	else
+# 		echo "*********************"
+# 		echo $tag_path
+# 		echo $trunk_path
+# 		echo "*********************"
+# 		svn --username $svn_user --password $svn_pass --trust-server-cert --non-interactive cp $trunk_path $tag_path -m "trunk to tags"
+# 		echo ========================================== 
+# 		echo OK : check $tag_path
+# 		echo ========================================== 
+# 	fi
+# }
 
 
 print_end_time() {

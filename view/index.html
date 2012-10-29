@@ -55,14 +55,15 @@
 					<fieldset>
 			          <!-- <legend>打包JS</legend> -->
 			          <div class="control-group">
-			            <label class="control-label" for="selectPro">工程名</label>
+			            <label class="control-label" for="selectPro1">工程名</label>
 			            <div class="controls">
-			              <select name="proname" id="selectPro">
-			                <option>xblog</option>
-			                <option>blog7</option>
-			                <option>blog7icp</option>	                
+			            	<!-- <strong name="" id="proname1">输入svn路径后自动匹配</strong> -->
+			              <select name="proname" id="selectPro1">
+			                <option value="xblog">xblog</option>
+			                <option value="blog7">blog7</option>
+			                <option value="blog7icp">blog7icp</option>	                
 			              </select>
-			              <p class="help-block">也是输入的项目名称（用来压缩和发布）</p>
+			              <p class="help-block"></p>
 			            </div>
 			          </div>
 			          <div class="control-group">
@@ -125,7 +126,7 @@
 			            <label class="control-label" for="selectPro2">工程名</label>
 			            <div class="controls">
 			              <select name="proname" id="selectPro2">
-			                <option>xblogstyle</option>
+			                <option value="xblogstyle">xblogstyle</option>
 			                <% if(username === "admin") { %>
 			                	<option>blog7style</option>
 			                <% } %>
