@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel='stylesheet' href='/css/bootstrap.css' />
+		<title>打包中...</title>
 		<style>
 	        body {
 	    		padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -55,10 +56,17 @@
 						type : 'GET',
 						url  : url,
 						success : function(msg){
-							var regex = /.*\s#END#/g;
-							if(regex.test(msg))
-							{
+
+							var regex_end = /.*\s#END#/g;
+							var regex_error = /.*\s#ERROR#/g;
+							if(regex_end.test(msg)){
 								$(".container h1").html("打包完成").css("color","red");
+								document.title = "打包完成";
+								clearInterval(t);
+							}
+							if(regex_error.test(msg)){
+								$(".container h1").html("打包出错！").css("color","red");
+								document.title = "打包出错！";
 								clearInterval(t);
 							}
 
@@ -93,10 +101,12 @@
 							var regex_error = /.*\s#ERROR#/g;
 							if(regex_end.test(msg)){
 								$(".container h1").html("打包完成").css("color","red");
+								document.title = "打包完成";
 								clearInterval(t);
 							}
 							if(regex_error.test(msg)){
 								$(".container h1").html("打包出错！").css("color","red");
+								document.title = "打包出错！";
 								clearInterval(t);
 							}
 
